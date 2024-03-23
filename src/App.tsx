@@ -1,5 +1,11 @@
-const App = () => {
-  return <div className="App">arrow game</div>
+import Playground from "./components/playground"
+
+const App: React.FC = () => {
+  return (
+    <div>
+      <Playground />
+    </div>
+  )
 }
 
 export default App
