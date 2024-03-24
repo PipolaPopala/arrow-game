@@ -1,20 +1,39 @@
-// import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { setCurrentStep } from "./store/slices"
+import { setCurrentStep, setSteps } from "./store/slices"
+import { INTERVAL_TIME } from "./constants"
+import Controls from "./components/controls"
+import RandomKeys from "./components/randomKeys"
 
 const Playground: React.FC = () => {
   const state = useAppSelector(state => state.playgroundReducer)
   const dispatch = useAppDispatch()
 
-  // const [isTimerActive, setIsTimerActive] = useState<Boolean>(false)
+  const refreshIntervalId = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const [isTimerActive, setIsTimerActive] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (isTimerActive) {
+      refreshIntervalId.current = setInterval(() => {
+        dispatch(setCurrentStep())
+        dispatch(setSteps())
+      }, INTERVAL_TIME)
+    } else {
+      clearInterval(refreshIntervalId.current as NodeJS.Timeout)
+    }
+
+    return () => clearInterval(refreshIntervalId.current as NodeJS.Timeout)
+  }, [isTimerActive])
 
   return (
     <div>
-      <h1>Playground</h1>
-      <div>{state.currentStep}</div>
-      <button type="button" onClick={() => dispatch(setCurrentStep())}>
-        dispatch
-      </button>
+      {state.currentStep}
+      <Controls
+        isTimerActive={isTimerActive}
+        setIsTimerActive={setIsTimerActive}
+      />
+      <RandomKeys isTimerActive={isTimerActive} />
     </div>
   )
 }
