@@ -1,5 +1,3 @@
-# Readme
-
 ### Project
 
 ### Stack
