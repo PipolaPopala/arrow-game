@@ -1,8 +1,10 @@
-// import styles from "./Modal.module.css"
+import styles from "./Modal.module.css"
+import cn from "classnames"
 import { resetStore } from "../../store/slices"
 import { useAppDispatch } from "../../../../app/hooks"
 import ResultMessage from "./components/resultMessage"
 import { Button } from "../../../UI"
+import { Modal as MuiModal } from "@mui/material"
 
 export interface IModalProps {
   setIsShowModal: React.Dispatch<React.SetStateAction<boolean>>
@@ -19,11 +21,19 @@ const Modal: React.FC<IModalProps> = props => {
   }
 
   return (
-    <div>
-      <h3>Modal</h3>
-      <ResultMessage isSuccessEndGame={isSuccessEndGame} />
-      <Button onClick={handleClose}>Start New Game</Button>
-    </div>
+    <MuiModal open onClose={handleClose} className={styles.wrapper}>
+      <div
+        className={cn(styles.container, {
+          [styles.modalSuccess]: isSuccessEndGame,
+          [styles.modalUnsuccess]: !isSuccessEndGame,
+        })}
+      >
+        <ResultMessage isSuccessEndGame={isSuccessEndGame} />
+        <Button onClick={handleClose} className={styles.button}>
+          Start New Game
+        </Button>
+      </div>
+    </MuiModal>
   )
 }
 

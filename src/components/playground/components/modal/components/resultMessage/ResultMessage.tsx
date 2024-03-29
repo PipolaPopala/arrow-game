@@ -1,4 +1,5 @@
-// import styles from "./ResultMessage.module.css"
+import styles from "./ResultMessage.module.css"
+import { TypographyText } from "../../../../../UI"
 
 export interface IResultMessageProps {
   isSuccessEndGame: boolean | null
@@ -7,14 +8,18 @@ export interface IResultMessageProps {
 const ResultMessage: React.FC<IResultMessageProps> = props => {
   const { isSuccessEndGame } = props
 
-  return isSuccessEndGame ? (
-    <p>
-      Congratulation! <br /> You win!
-    </p>
-  ) : (
-    <p>
-      My regrets. <br /> You have lost this game
-    </p>
+  return (
+    <div className={styles.wrapper}>
+      {isSuccessEndGame ? (
+        <TypographyText className={styles.text}>
+          Congratulation! <br /> You win!
+        </TypographyText>
+      ) : (
+        <TypographyText className={styles.text}>
+          My regrets. <br /> You have lost this game
+        </TypographyText>
+      )}
+    </div>
   )
 }
 
