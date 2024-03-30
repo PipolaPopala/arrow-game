@@ -27,11 +27,13 @@ const Playground: React.FC = () => {
         dispatch(setSteps())
       }, INTERVAL_TIME)
     } else {
-      clearInterval(refreshIntervalId.current as NodeJS.Timeout)
+      refreshIntervalId.current && clearInterval(refreshIntervalId.current)
     }
 
-    return () => clearInterval(refreshIntervalId.current as NodeJS.Timeout)
-  }, [isTimerActive])
+    return () => {
+      refreshIntervalId.current && clearInterval(refreshIntervalId.current)
+    }
+  }, [isTimerActive, dispatch])
 
   useEffect(() => {
     const isSuccessful = state.totalSuccess === END_GAME_CONDITION.SUCCESS_COUNT

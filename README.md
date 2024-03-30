@@ -2,8 +2,9 @@
 
 ### Stack
 
-- `Vite` + `Vitest`
 - `React` + `Typescript`
 - `Redux` + `Redux Toolkit`
 - `ESLint` + `Prettier` + `Husky`
-- `Material UI`
+- `Material UI` + `CSS modules`
+- `Vite`, `Vitest`
+- `GitHub Pages`

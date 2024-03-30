@@ -1,6 +1,6 @@
 import styles from "./WelcomeText.module.css"
 import Loader from "./img/loader.svg"
-import { TypographyText } from "../../../../../UI"
+import { TypographyText } from "../../../../UI"
 
 export interface IWelcomeTextProps {
   isTimerActive: boolean

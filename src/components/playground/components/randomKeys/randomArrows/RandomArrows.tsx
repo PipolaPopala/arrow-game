@@ -1,9 +1,9 @@
 import styles from "./RandomArrows.module.css"
 import cn from "classnames"
-import { useAppSelector } from "../../../../../../app/hooks"
-import type { IPlaygroundStepsStare } from "../../../../store/types"
-import { MAP_ARROW_CODES } from "../../../../constants"
-import type { IMapArrowCodes } from "../../../../type"
+import { useAppSelector } from "../../../../../app/hooks"
+import type { IPlaygroundStepsStare } from "../../../store/types"
+import { MAP_ARROW_CODES } from "../../../constants"
+import type { IMapArrowCodes } from "../../../type"
 
 const RandomArrows: React.FC = () => {
   const state = useAppSelector(state => state.playgroundReducer)

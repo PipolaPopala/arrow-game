@@ -1,5 +1,5 @@
 import styles from "./ResultMessage.module.css"
-import { TypographyText } from "../../../../../UI"
+import { TypographyText } from "../../../../UI"
 
 export interface IResultMessageProps {
   isSuccessEndGame: boolean | null

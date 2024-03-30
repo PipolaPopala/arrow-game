@@ -2,7 +2,7 @@ import styles from "./Modal.module.css"
 import cn from "classnames"
 import { resetStore } from "../../store/slices"
 import { useAppDispatch } from "../../../../app/hooks"
-import ResultMessage from "./components/resultMessage"
+import ResultMessage from "./resultMessage"
 import { Button } from "../../../UI"
 import { Modal as MuiModal } from "@mui/material"
 

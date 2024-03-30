@@ -1,8 +1,7 @@
-import styles from "./RandomKeys.module.css"
 import { useAppSelector } from "../../../../app/hooks"
 import { TypographyHeader } from "../../../UI"
-import RandomArrows from "./components/randomArrows"
-import WelcomeText from "./components/welcomeText"
+import RandomArrows from "./randomArrows"
+import WelcomeText from "./welcomeText"
 
 export interface IRandomKeysProps {
   isTimerActive: boolean
